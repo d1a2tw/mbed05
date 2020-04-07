@@ -40,8 +40,8 @@ void btn_fall_irq() {
 
   // defer the printf call to the low priority thread
 
-  printfQueue.call(&print_toggle_led);
-
+  //printfQueue.call(&print_toggle_led);
+ printf("105061151 demo\r\n");
 }
 
 
@@ -72,8 +72,8 @@ int main() {
 
   // button fall still runs in the ISR
 
-  btn.fall(&btn_fall_irq);
-
+  //btn.fall(&btn_fall_irq);
+  btn.fall(eventQueue.event(&btn_fall_irq));
 
   while (1) {wait(1);}
 
